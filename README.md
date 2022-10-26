@@ -52,6 +52,14 @@ model = ElmerForConditionalGeneration.from_pretrained("elmer-base")
 #--------------------------------
 ```
 
+For example, we'd like to fine-tune ELMER on XSUM dataset:
+
+```python
+python train.py --dataset=XSUM --model=ELMER-XSUM --data-dir=[DATASET_DIR] \
+       --pretrained_model_dir=[ELMER_BASE_DIR] --saved_dir=[FINE_TUNED_MODEL_DIR] --log-dir=[LOG_DIR] \
+       --start_epoch=0 --epochs=100 --train_batch_size=32 --eval_batch_size=32 --optimizer=adam --lr=2e-5
+```
+
 ## Contact
 
 If you have any problems, raise an issue or contact <lijunyi@ruc.edu.cn>.
