@@ -42,6 +42,6 @@ class S2SDataset(Dataset):
                 labels.append(data["target"])
             fin.close()
             data = {"source_input_ids": source_input_ids, "label_ids": labels}
-            torch.save(data, str(self.epoch)+".tar")
+            torch.save(data, os.path.join(self.data_dir, '{}.tar'.format(self.epoch)))
             
         return source_input_ids, labels
