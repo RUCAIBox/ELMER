@@ -20,6 +20,8 @@ python train.py
 
 ## Evaluation
 
-To evaluate the generated texts, the `BLEU`, `METEOR`, and `Distinct` metrics can be computed using our provided scripts in pyeval directory. For the ROUGE metric, please install the [files2rouge](https://github.com/pltrdy/files2rouge) package and compute it. The file `install.sh` has contained the installation step for files2rouge.
+To evaluate the generated texts, the `BLEU`, `METEOR`, and `Distinct` metrics can be computed using our provided scripts in pyeval directory. The `pyeval` package can be accessed from [here](https://drive.google.com/file/d/1ocbz-H4DqXa3mmkJuN2f6-mMpMQL5zuP/view?usp=sharing). Please download and unzip it and then place it in the `fine-tune` directory. 
+
+For the ROUGE metric, please install the [files2rouge](https://github.com/pltrdy/files2rouge) package and compute it. The file `install.sh` has contained the installation steps for files2rouge.
 
 
