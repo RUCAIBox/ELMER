@@ -34,7 +34,7 @@ class S2SDataset(Dataset):
             source_input_ids, labels = data["source_input_ids"], data["label_ids"]
         except:
             source_input_ids, labels = [], []
-            fin = open(str(self.epoch)+".json", "r")
+            fin = open(os.path.join(self.data_dir, '{}.json'.format(self.epoch)), "r")
             for line in fin:
                 text = line.strip()
                 data = json.loads(text)
