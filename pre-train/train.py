@@ -4,7 +4,7 @@ import time
 import numpy as np
 from logging import getLogger
 from data import S2SDataset
-from utils import build_optimizer, init_seed, init_logger, read_configuration, collate_fn_seq2seq, format_time
+from utils import build_optimizer, init_seed, init_logger, read_configuration, collate_fn_seq2seq, format_time, init_device
 from transformers import BartConfig as ElmerConfig
 from transformers import BartTokenizer as ElmerTokenizer
 from transformers import BartForConditionalGeneration as ElmerForConditionalGeneration
@@ -18,10 +18,11 @@ def train(config):
 
     logger.info(config)
     init_seed(config["seed"], config["reproducibility"])
+    device = init_device(config)
 
     logger.info("Initialize ELMER....")
     configuration = ElmerConfig.from_pretrained(config["pretrained_model_dir"])
-    model = ElmerForConditionalGeneration(config=configuration).cuda()
+    model = ElmerForConditionalGeneration(config=configuration).to(device)
     optimizer = build_optimizer(config, model)
 
     steps = 0
@@ -46,12 +47,12 @@ def train(config):
             # batch data
             source_input_ids, source_mask, target_input_ids, target_mask, labels, exit_layers = batch
 
-            source_input_ids = source_input_ids.cuda()
-            source_mask = source_mask.cuda()
-            target_input_ids = target_input_ids.cuda()
-            target_mask = target_mask.cuda()
-            labels = labels.cuda()
-            exit_layers = exit_layers.cuda()
+            source_input_ids = source_input_ids.to(device)
+            source_mask = source_mask.to(device)
+            target_input_ids = target_input_ids.to(device)
+            target_mask = target_mask.to(device)
+            labels = labels.to(device)
+            exit_layers = exit_layers.to(device)
             output_dict = model(input_ids=source_input_ids,
                                 attention_mask=source_mask,
                                 decoder_input_ids=target_input_ids,
@@ -83,6 +84,7 @@ def train(config):
                     saved_path = os.path.join(config["saved_dir"], config["model"], str(cur_batches))
                     if not os.path.exists(saved_path):
                         os.makedirs(saved_path)
+                        
                     # save pre-trained language model
                     model_to_save = model.module if hasattr(model, 'module') else model
                     model_to_save.save_pretrained(saved_path)
