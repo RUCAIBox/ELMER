@@ -24,3 +24,5 @@ After preparing the pre-training corpus, you can set the hyper-parameters in `co
 ```python
 python train.py
 ```
+
+*Note: you should copy the file `modeling_bart.py` to the BART directory in Transformers.*
