@@ -40,3 +40,8 @@ The pre-training code can be found [here](pre-train), and the fine-tuning code c
 
 To pre-train or fine-tune ELMER, please copy the file `modeling_bart.py` from the `pre-train` or `fine-tune` directory to the `BART` directory in Transformers, such as `~/miniconda3/envs/[env_name]/lib/python3.7/site-packages/transformers/models/bart`.
 
+```python
+from transformers import BartTokenizer as ElmerTokenizer
+from transformers import BartForConditionalGeneration as ElmerForConditionalGeneration
+```
+
