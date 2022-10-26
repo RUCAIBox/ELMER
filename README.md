@@ -20,6 +20,16 @@ the exit layer for each token from 1 to the maximum layer.
 
 ## Pre-trained Models
 
-We provide the pre-trained checkpoint of ELMER-base with pre-training and fine-tuning source code. The checkpoint was pre-trained on 16GB English corpus, Wikipedia and BookCorpus.
+We provide the checkpoint for ELMER-base, which was pre-trained on 16GB English corpus, Wikipedia and BookCorpus.
 
 - [ELMER-base](): 6 layers encoder, 6 layers decoder, 12 attention heads, and 768 hidden dimensions.
+
+The checkpoint can be directly used with Hugging Face Transformers. In the future, we will integrate ELMER into [Hugging Face]() and [TextBox]() libraries.
+
+## Requirements
+
+To install requirements
+
+```shell
+bash install.sh
+```
