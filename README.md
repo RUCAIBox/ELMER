@@ -62,6 +62,10 @@ python train.py --dataset=XSUM --model=ELMER-XSUM --data-dir=[DATASET_DIR] \
 
 These hyper-parameters can be also defined in `config.yaml` file.
 
+## Evaluation
+
+To evaluate the generated texts, the `BLEU`, `METEOR`, and `Distinct` metrics can be computed using our provided scripts in `pyeval`. For the `ROUGE` metric, please install the [files2rouge](https://github.com/pltrdy/files2rouge) package.
+
 ## Contact
 
 If you have any problems, raise an issue or contact <lijunyi@ruc.edu.cn>.
