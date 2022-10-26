@@ -36,5 +36,5 @@ bash install.sh
 
 ## How to use
 
-The pre-training code can be found [here](pre-train/README.md)
+The pre-training code can be found [here](pre-train)
 
