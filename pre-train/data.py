@@ -29,8 +29,19 @@ class S2SDataset(Dataset):
         """
         read corpus file
         """
-
-        data = torch.load(os.path.join(self.data_dir, '{}.tar'.format(self.epoch)))
-        source_input_ids, labels = data["source_input_ids"], data["label_ids"]
-
+        try:
+            data = torch.load(os.path.join(self.data_dir, '{}.tar'.format(self.epoch)))
+            source_input_ids, labels = data["source_input_ids"], data["label_ids"]
+        except:
+            source_input_ids, labels = [], []
+            fin = open(str(self.epoch)+".json", "r")
+            for line in fin:
+                text = line.strip()
+                data = json.loads(text)
+                source_input_ids.append(data["source"])
+                labels.append(data["target"])
+            fin.close()
+            data = {"source_input_ids": source_input_ids, "label_ids": labels}
+            torch.save(data, str(self.epoch)+".tar")
+            
         return source_input_ids, labels
