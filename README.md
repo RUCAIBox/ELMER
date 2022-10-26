@@ -60,6 +60,8 @@ python train.py --dataset=XSUM --model=ELMER-XSUM --data-dir=[DATASET_DIR] \
        --start_epoch=0 --epochs=100 --train_batch_size=32 --eval_batch_size=32 --optimizer=adam --lr=2e-5
 ```
 
+These hyper-parameters can be also defined in `config.yaml` file.
+
 ## Contact
 
 If you have any problems, raise an issue or contact <lijunyi@ruc.edu.cn>.
