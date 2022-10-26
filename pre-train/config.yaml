@@ -1,0 +1,24 @@
+# general
+seed: 19971010
+state: INFO
+dataset: bookwiki
+model: ELMER
+reproducibility: True
+train: True
+
+# dataset and model
+data_dir: 'data/books_wiki'
+pretrained_model_dir: 'pretrained_model/bart-base'
+saved_dir: 'pretrained_model'
+log_dir: 'logging'
+
+# training settings
+start_epoch: 0
+epochs: 10
+train_batch_size: 16
+optimizer: adam
+accumulation_steps: 256
+save_batches: 5000
+lr: 2e-5
+clip_norm: 2.0
+
