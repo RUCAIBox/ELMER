@@ -52,3 +52,17 @@ model = ElmerForConditionalGeneration.from_pretrained("elmer-base")
 #--------------------------------
 ```
 
+## Contact
+
+If you have any problems, raise an issue or contact <lijunyi@ruc.edu.cn>.
+
+## Citation
+
+```bibtex
+@article{lijunyi2022elmer,
+  title={ELMER: A Non-Autoregressive Pre-trained Language Model for Efficient and Effective Text Generation},
+  author={Li, Junyi and Tang, Tianyi and Zhao, Wayne Xin and Nie, Jian-Yun and Wen, Ji-Rong},
+  booktitle={EMNLP 2022},
+  year={2022}
+}
+```
