@@ -28,11 +28,6 @@ def build_optimizer(config, model):
         optimizer = optim.AdamW(parameters, lr=config["lr"])
     elif config["optimizer"].lower() == 'adafactor':
         optimizer = Adafactor(parameters, scale_parameter=False, relative_step=False, warmup_init=False, lr=lr)
-    elif config["optimizer"].lower() == 'cosine_warmup':
-        optimizer = CosineWarmUp(
-            optim.Adam(parameters, betas=(0.9, 0.98), eps=1e-08, weight_decay=0.01),
-            config["lr"], config["warmup_steps"], config["training_steps"]
-        )
     else:
         raise ValueError('Received unrecognized optimizer {}.'.format(learner))
     return optimizer
@@ -54,6 +49,12 @@ def init_seed(seed, reproducibility):
 
 def format_time(elapsed):
     return str(datetime.timedelta(seconds=int(round(elapsed))))
+
+
+def init_device(config):
+    use_gpu = config["use_gpu"]
+    device = torch.device("cuda:" + str(config["gpu_id"]) if torch.cuda.is_available() and use_gpu else "cpu")
+    return device
 
 
 def get_local_time():
