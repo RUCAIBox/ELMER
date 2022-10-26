@@ -14,7 +14,6 @@ We will process and generate `10` different pre-training text copies for each ep
 
 - `data/books_wiki/books_wiki.txt`: This file is the original texts for BookCorpus and Wikipedia. The format is one text per line.
 - `pretrained_model/bart-base`: This is the BART-base directory from Transformers. ELMER adopts the tokenizer and vocabulary from BART-base.
-- `data/books_wiki`: The copies will be saved in this directory.
 
 The pre-processing step is conducted using multiple processes to accelerate the speed.
 
