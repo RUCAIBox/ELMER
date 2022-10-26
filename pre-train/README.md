@@ -10,5 +10,7 @@ You should first pre-process the pre-training corpus using two text corruption m
 python corpus_corruption.py
 ```
 
+We will process and generate `10` different pre-training text copies for each epoch:
+
 - `books_wiki.txt`: This file is the original texts for BookCorpus and Wikipedia. The format is one text per line.
 - `bart-base`: This is the BART-base directory from Transformers. ELMER adopts the tokenizer and vocabulary from BART-base.
