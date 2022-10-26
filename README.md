@@ -14,3 +14,6 @@ To explicitly learn the bi-directional token dependency, we propose ELMER: an Ef
 The architecture of ELMER is a variant of the standard Transformer encoder-decoder and poses three technical contributions:
 
 1. For decoder, we replace the original masked multi-head attention with bi-directional multi-head attention akin to the encoder. Therefore, ELMER dynamically adjusts the output length by emitting an end token `[EOS]` at any position.
+2. Leveraging early exit, ELMER injects "off-ramps" at each decoder layer, which make predictions with intermediate hidden states. If ELMER exits at the l-th layer, we copy the l-th hidden states to the subsequent layers.
+3. ELMER utilizes a novel pre-training objective, layer permutation language modeling (LPLM), to pre-train on the large-scale corpus. LPLM permutes
+the exit layer for each token from 1 to the maximum layer.
