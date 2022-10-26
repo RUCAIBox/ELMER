@@ -1,0 +1,28 @@
+# general
+seed: 19971010
+state: INFO
+dataset: XSUM
+model: ELMER-XSUM
+retrieval: False
+reproducibility: True
+train: True
+
+# dataset and model
+data_dir: 'data/xsum'
+pretrained_model_dir: 'pretrained_model/elmer-base'
+saved_dir: 'saved_model'
+log_dir: 'logging'
+
+# training settings
+start_epoch: 0
+epochs: 100
+train_batch_size: 32
+optimizer: adam
+lr: 2e-5
+
+# evaluation settings
+eval_batch_size: 32
+
+# testing settings
+test_batch_size: 1
+output_dir: 'output_text'
