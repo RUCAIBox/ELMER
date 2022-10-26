@@ -10,7 +10,6 @@ from transformers import BartTokenizer as ElmerTokenizer
 from transformers import BartForConditionalGeneration as ElmerForConditionalGeneration
 from torch.utils.data import DataLoader
 from torch.nn.utils import clip_grad_norm
-from data import BOS_ID, EOS_ID, PAD_ID, MASK_ID
 
 
 def train(config):
