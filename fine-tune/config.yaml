@@ -27,4 +27,5 @@ eval_batch_size: 32
 
 # testing settings
 test_batch_size: 1
+finetuned_model_dir: 'saved_model/ELMER-XSUM/50'
 output_dir: 'output_text'
