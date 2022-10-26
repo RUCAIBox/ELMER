@@ -211,14 +211,14 @@ def permute_sentences(source, p=1.0):
     return document
 
 
-def generate(line_list):
-    part_list = [[] for _ in range(10)]
+def generate(line_list, epochs):
+    part_list = [[] for _ in range(epochs)]
     for data in line_list:
         text, idx = data["text"], data["idx"]
         token_ids = tokenizer.encode(text, add_special_tokens=True, truncation=True, max_length=512, return_tensors="pt")
         ids = token_ids[0]
-        for epoch in range(10):
-            with data_utils.numpy_seed(123, epoch, idx):
+        for epoch_idx in range(epochs):
+            with data_utils.numpy_seed(123, epoch_idx, idx):
                 assert ids[-1] == EOS_ID
                 source, target = ids, ids.clone()
                 source = permute_sentences(source, 1.0)
@@ -228,7 +228,7 @@ def generate(line_list):
             assert (source[1:-1] >= 3).all()
             assert source[0] == BOS_ID
             assert source[-1] == EOS_ID
-            part_list[epoch].append({"idx": idx, "source": source.numpy().tolist(), "target": target.numpy().tolist()})
+            part_list[epoch_idx].append({"idx": idx, "source": source.numpy().tolist(), "target": target.numpy().tolist()})
     print("complete!")
     return part_list
 
@@ -262,25 +262,27 @@ if __name__ == '__main__':
     pool = Pool()
 
     parts = split_txt(data_list, core)
+    
+    epochs = 10
 
     results = []
     for part in parts:
-        result = pool.apply_async(generate, (part,))
+        result = pool.apply_async(generate, (part, epochs,))
         results.append(result)
 
     pool.close()
     pool.join()
 
-    final_list = [[] for _ in range(10)]
+    final_list = [[] for _ in range(epochs)]
     for result in results:
         signal = result.get()
-        for i in range(10):
+        for i in range(epochs):
             final_list[i].extend(signal[i])
 
-    for epoch in range(10):
-        output_file = os.path.join("data", "books_wiki", str(epoch)+".json")
+    for epoch_idx in range(epochs):
+        output_file = os.path.join("data", "books_wiki", str(epoch_idx)+".json")
         fout = open(output_file, "w")
-        for data in final_list[epoch]:
+        for data in final_list[epoch_idx]:
             fout.write(json.dumps(data) + "\n")
         fout.close()
 
