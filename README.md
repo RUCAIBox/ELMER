@@ -33,3 +33,7 @@ To install requirements
 ```shell
 bash install.sh
 ```
+
+## How to use
+
+
