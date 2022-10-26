@@ -5,6 +5,8 @@ This repository contains code and checkpoints for **ELMER**:
 
 Junyi Li, Tianyi Tang, Wayne Xin Zhao, Jian-Yun Nie, Ji-Rong Wen
 
-#Introduction
+# Introduction
 
 To explicitly learn the bi-directional token dependency, we propose ELMER: an Efficient and Effective PLM for NAR text generation, which generates tokens at different layers by leveraging the early exit technique.
+
+![](./asset/model.png)
