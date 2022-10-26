@@ -51,6 +51,12 @@ def format_time(elapsed):
     return str(datetime.timedelta(seconds=int(round(elapsed))))
 
 
+def init_device(config):
+    use_gpu = config["use_gpu"]
+    device = torch.device("cuda:" + str(config["gpu_id"]) if torch.cuda.is_available() and use_gpu else "cpu")
+    return device
+
+
 def get_local_time():
     cur = datetime.datetime.now()
     cur = cur.strftime('%b-%d-%Y_%H-%M-%S')
