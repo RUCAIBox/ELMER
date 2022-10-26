@@ -27,7 +27,7 @@ for k in range(0, 128):
 ps = torch.FloatTensor(ps)
 mask_span_distribution = torch.distributions.Categorical(ps)
 
-tokenizer = BartTokenizer.from_pretrained("bart-base")
+tokenizer = BartTokenizer.from_pretrained("pretrained_model/bart-base")
 
 
 def gather_word_starts(source, mask_whole_word):
@@ -250,7 +250,7 @@ def split_txt(tasks, core):
 if __name__ == '__main__':
 
     data_list = []
-    fin = open("books_wiki.txt", "r")
+    fin = open("data/books_wiki/books_wiki.txt", "r")
     idx = 1
     for line in fin:
         data_list.append({"text": line.strip(), "idx": idx})
