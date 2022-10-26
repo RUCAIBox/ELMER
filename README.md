@@ -44,8 +44,9 @@ To pre-train or fine-tune ELMER, please copy the file `modeling_bart.py` from th
 from transformers import BartTokenizer as ElmerTokenizer
 from transformers import BartForConditionalGeneration as ElmerForConditionalGeneration
 
-tokenizer = ElmerTokenizer.from_pretrained("elmer-base")
-model = ElmerForConditionalGeneration.from_pretrained("elmer-base")
+# pretrained_model/elmer-base is the saved directory for ELMER checkpoints
+tokenizer = ElmerTokenizer.from_pretrained("pretrained_model/elmer-base")
+model = ElmerForConditionalGeneration.from_pretrained("pretrained_model/elmer-base")
 
 #--------------------------------
 # do training for many many steps
