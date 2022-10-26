@@ -278,7 +278,8 @@ if __name__ == '__main__':
             final_list[i].extend(signal[i])
 
     for epoch in range(10):
-        fout = open(str(epoch)+".json", "w")
+        output_file = os.path.join("data", "books_wiki", str(epoch)+".json")
+        fout = open(output_file, "w")
         for data in final_list[epoch]:
             fout.write(json.dumps(data) + "\n")
         fout.close()
