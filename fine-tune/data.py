@@ -14,7 +14,7 @@ BOS_ID, PAD_ID, EOS_ID, MASK_ID = 0, 1, 2, 50264
 class S2SDataset(Dataset):
     """Dataset for sequence-to-sequence generative models, i.e., ELMER"""
 
-    def __init__(self, data_dir, tokenizer, use_retrieval, data_usage):
+    def __init__(self, data_dir, tokenizer, data_usage):
         self.data_dir = data_dir
         self.tokenizer = tokenizer
         self.data_usage = data_usage
