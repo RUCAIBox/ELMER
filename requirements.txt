@@ -1,0 +1,10 @@
+activations==0.1.0
+file_utils==0.0.1
+nltk==3.6.7
+numpy==1.21.5
+PyYAML==6.0
+setuptools==60.9.3
+spacy==3.4.2
+torch==1.10.2
+torch_geometric==2.1.0.post1
+transformers==4.17.0
