@@ -17,7 +17,7 @@ We will process and generate 10 different pre-training text copies `{epoch}.json
 
 The pre-processing step is conducted using multiple processes to accelerate the speed.
 
-## Training:
+## Training
 
 After preparing the pre-training corpus, you can set the hyper-parameters in `config.yaml` and start training:
 
