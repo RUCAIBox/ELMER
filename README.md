@@ -9,4 +9,4 @@ Junyi Li, Tianyi Tang, Wayne Xin Zhao, Jian-Yun Nie, Ji-Rong Wen
 
 To explicitly learn the bi-directional token dependency, we propose ELMER: an Efficient and Effective PLM for NAR text generation, which generates tokens at different layers by leveraging the early exit technique.
 
-![](./asset/model.png){:height="50%" width="50%"}
+<img src="asset/model.png" alt="Cover" width="50%"/>
