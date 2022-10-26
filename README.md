@@ -22,4 +22,4 @@ the exit layer for each token from 1 to the maximum layer.
 
 We provide the pre-trained checkpoint of ELMER-base with pre-training and fine-tuning source code. The checkpoint was pre-trained on 16GB English corpus, Wikipedia and BookCorpus.
 
-- `[ELMER-base]()`: 6 layers encoder, 6 layers decoder, 12 attention heads, and 768 hidden dimensions.
+- [ELMER-base](): 6 layers encoder, 6 layers decoder, 12 attention heads, and 768 hidden dimensions.
