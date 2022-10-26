@@ -1,4 +1,6 @@
 # general
+use_gpu: True
+gpu_id: 0
 seed: 19971010
 state: INFO
 dataset: XSUM
