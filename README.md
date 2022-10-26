@@ -38,5 +38,5 @@ bash install.sh
 
 The pre-training code can be found [here](pre-train), and the fine-tuning code can be found [here](fine-tune).
 
-To pre-train or fine-tune ELMER, please copy the file `modeling_bart.py` from the `pre-train` or `fine-tune` directory to the `BART model` directory in Hugging Face Transformers, such as `~/miniconda3/envs/[env_name]/lib/python3.7/site-packages/transformers/models/bart`.
+To pre-train or fine-tune ELMER, please copy the file `modeling_bart.py` from the `pre-train` or `fine-tune` directory to the `BART` directory in Transformers, such as `~/miniconda3/envs/[env_name]/lib/python3.7/site-packages/transformers/models/bart`.
 
