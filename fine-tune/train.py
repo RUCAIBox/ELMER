@@ -4,7 +4,7 @@ import time
 import numpy as np
 from logging import getLogger
 from data import S2SDataset
-from utils import build_optimizer, init_seed, init_logger, read_configuration, collate_fn_seq2seq, format_time
+from utils import build_optimizer, init_seed, init_logger, read_configuration, collate_fn_seq2seq, format_time, init_device
 from transformers import BartConfig, BartTokenizer, BartForConditionalGeneration
 from torch.utils.data import DataLoader
 from eval import Evaluate
@@ -17,6 +17,7 @@ def train(config):
 
     logger.info(config)
     init_seed(config["seed"], config["reproducibility"])
+    device = init_device(config)
 
     logger.info("Initialize ELMER from {}.".format(config["pretrained_model_dir"]))
 
