@@ -22,7 +22,7 @@ the exit layer for each token from 1 to the maximum layer $L$.
 
 We provide the checkpoint for ELMER-base, which was pre-trained on 16GB English corpus, i.e., BookCorpus and Wikipedia.
 
-- [ELMER-base](): 6 layers encoder, 6 layers decoder, 12 attention heads, and 768 hidden dimensions.
+- [ELMER-base](https://huggingface.co/RUCAIBox/elmer/tree/main): 6 layers encoder, 6 layers decoder, 12 attention heads, and 768 hidden dimensions.
 
 The checkpoint can be directly used with Hugging Face Transformers. In the future, we will integrate ELMER into [Hugging Face](https://huggingface.co/) and [TextBox](https://github.com/RUCAIBox/TextBox) libraries for easy-to-use.
 
