@@ -217,13 +217,11 @@ def test(config):
             source_mask = source_mask.to(device)
             target_input_ids = target_input_ids.to(device)
             target_mask = target_mask.to(device)
-            labels = labels.to(device)
             t0 = time.perf_counter()
             output_dict, inter_losses = model(input_ids=source_input_ids,
                                                  attention_mask=source_mask,
                                                  decoder_input_ids=target_input_ids,
                                                  decoder_attention_mask=target_mask,
-                                                 labels=labels,
                                                  return_dict=True)
             t1 = time.perf_counter()
             final_logits = output_dict["logits"]
