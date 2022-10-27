@@ -65,7 +65,7 @@ These hyper-parameters can be also defined in `config.yaml` file.
 
 ## Evaluation
 
-To evaluate the generated texts, the `BLEU`, `METEOR`, and `Distinct` metrics can be computed using our provided scripts in `pyeval` directory. For the `ROUGE` metric, please install the [files2rouge](https://github.com/pltrdy/files2rouge) package and compute it.
+To evaluate the generated texts, the `BLEU`, `METEOR`, and `Distinct` metrics can be computed using our provided scripts in `pyeval` package. For the `ROUGE` metric, please install the [files2rouge](https://github.com/pltrdy/files2rouge) package and compute it.
 
 ## Contact
 
